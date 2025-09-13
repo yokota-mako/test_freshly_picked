@@ -1,6 +1,9 @@
-@extends('layouts.app') @section('css')
+@extends('layouts.app')
+ @section('css')
     <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
-@endsection @section('content')
+@endsection
+
+@section('content')
     <div class="test_freshly_picked__alert">
         @if (session('message'))
             <div class="__alert--success">{{ session('message') }}</div>
@@ -45,9 +48,14 @@
                 @foreach ($products as $product)
                     <div class="product-card">
                         <a href="{{ route('show', ['id' => $product->id]) }}">
-                            <img src="{{ asset('img/' . $product->image) }}" alt="{{ $product->name }}">
-                            <h3>{{ $product->name }}</h3>
-                            <p>¥{{ number_format($product->price) }}</p>
+                            <div class="card__img">
+                            <img  src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                            </div>
+                            <div class="card__detail">
+                                <p>{{ $product->name }}</p>
+                                <p>¥{{ number_format($product->price) }}</p>
+                            </div>
+
                         </a>
                     </div>
                 @endforeach

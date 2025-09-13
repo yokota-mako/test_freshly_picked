@@ -24,7 +24,7 @@
             <div class="contact-form__heading">
                 <h2>商品登録</h2>
             </div>
-            <form class="form" action="{{ route('products.store') }}" method="post">
+            <form class="form" action="/products" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form__group">
                     <div class="form__group-title">
@@ -56,12 +56,12 @@
                 </div>
                 <div class="form__group">
                     <div class="form__group-title">
-                        <span class="form__label--item">商品画像</span>
+                        <span class="image">商品画像</span>
                         <span class="form__label--required">必須</span>
                     </div>
                     <div class="form__group-content">
-                        <label for="file-upload">ファイルを選択</label>
-                        </div>
+                        <label for="image">ファイルを選択</label>
+                        <input type="file" id="image" name="image" accept="image/*">
                     </div>
                 </div>
                 <div class="form__group">
@@ -70,10 +70,10 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--checkbox">
-                            <label><input type="checkbox" name="season[]" value="spring">春</label>
-                            <label><input type="checkbox" name="season[]" value="summer">夏</label>
-                            <label><input type="checkbox" name="season[]" value="autumn">秋</label>
-                            <label><input type="checkbox" name="season[]" value="winter">冬</label>
+                            <label><input type="checkbox" name="season" value="spring">春</label>
+                            <label><input type="checkbox" name="season" value="summer">夏</label>
+                            <label><input type="checkbox" name="season" value="autumn">秋</label>
+                            <label><input type="checkbox" name="season" value="winter">冬</label>
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--text">
-                            <input type="text" name="content" placeholder="商品の説明を入力" />
+                            <input type="text" name="description" placeholder="商品の説明を入力" />
                         </div>
                         <div class="form__error">
                             <!--バリデーション機能を実装したら記述します。-->
