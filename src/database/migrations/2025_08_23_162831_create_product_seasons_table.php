@@ -15,7 +15,6 @@ class CreateProductSeasonsTable extends Migration
     {
         Schema::create('product_seasons', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid')->unique();
             $table->string('product_id');
             $table->string('season_id');
             $table->timestamp('created_at')->useCurrent()->nullable();
